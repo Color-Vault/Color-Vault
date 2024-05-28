@@ -61,16 +61,22 @@
         .selector-for-some-widget {
             box-sizing: content-box;
         }
-        .archive-button {
+        .Downloads-button {
+            margin-top: -500px; /* Adjust this value to move the button up */
             margin-left: 430px;
-            padding: 8px 30px;
+            padding: 30px 60px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transform: scale(2.5); /* Scale the button */
+            transform: scale(1.5); /* Adjust the scale if needed */
             transform-origin: left; /* Keep the left position fixed */
+        }
+        .container2 {
+            margin: 0 auto;
+            padding: 5px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -97,17 +103,15 @@
     </button>
 
     <div class="container" id="main-container">
-        <h1>SSF2 Color Vault</h1>
+        <h1>Color Vault</h1>
         <p>
             Download the costumes here: <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/masterwebx/Color-Vault/tree/cdcdb633f70b25d300d67f63af07909b52bd43c9/SSF2%20XP%20Costumes">Download</a><br>
-            Download <img src="images/sandbox.png" alt="Sandbox Logo" width="20">: 
-            <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view">SSF2 Sandbox</a>
-            Install Image2RGB: <a href="https://github.com/Color-Vault/Color-Vault/raw/main/Image_2_RGB.exe">Image 2 RGB</a><br>
-            Download Sprite Sheets: <a href="https://drive.google.com/drive/folders/1-BWt6SKAZQPRwsZpLp3g1r95trWc866g">Click Here</a><br>
+            Download Image2RGB here: <a href="https://github.com/Color-Vault/Color-Vault/raw/main/Image_2_RGB.exe">Download</a><br>
+            Download Sprite Sheets here: <a href="https://drive.google.com/drive/folders/1-BWt6SKAZQPRwsZpLp3g1r95trWc866g">Download</a><br>
             Join the <img src="images/discord.png" alt="Discord Logo" width="20"> server: <a href="https://discord.gg/xZtTqX4">Discord server invite</a>
         </p>
-		<a href="archive.html"><button class="archive-button">Archive</button></a>
-        <p>*Make sure to toggle the Sun for Dark and light theme!</p>
+        
+		<a href="downloads.html"><button class="Downloads-button">Downloads</button></a>
         <h2>To install custom costumes,</h2>
         <p>Download the SSF2 XP Costumes folder linked above.</p>
         <p>Extract the zip folder. Create a folder called "SSF2 XP Costumes" in your documents folder. Move all the .as files into that folder.</p>
@@ -124,20 +128,46 @@
     </div>
 
     <script>
-        const body = document.body;
-        const container = document.getElementById('main-container');
-        const themeToggle = document.getElementById('theme-toggle');
-        const toggleText = document.querySelector('.toggle-text');
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            container.classList.toggle('dark-theme');
-            themeToggle.classList.toggle('dark-mode');
-
-            const isDarkMode = body.classList.contains('dark-theme');
-            themeToggle.title = isDarkMode ? 'Toggle light mode' : 'Toggle dark mode';
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const container = document.getElementById('main-container');
+            const themeToggle = document.getElementById('theme-toggle');
+            const toggleText = document.querySelector('.toggle-text');
+    
+            // Function to apply the theme
+            const applyTheme = (isDarkMode) => {
+                if (isDarkMode) {
+                    body.classList.add('dark-theme');
+                    container.classList.add('dark-theme');
+                    themeToggle.classList.add('dark-mode');
+                    themeToggle.title = 'Toggle light mode';
+                } else {
+                    body.classList.remove('dark-theme');
+                    container.classList.remove('dark-theme');
+                    themeToggle.classList.remove('dark-mode');
+                    themeToggle.title = 'Toggle dark mode';
+                }
+            };
+    
+            // Check the saved theme preference on page load
+            const savedTheme = localStorage.getItem('theme');
+            const isDarkMode = savedTheme === 'dark';
+            applyTheme(isDarkMode);
+    
+            // Event listener for the theme toggle button
+            themeToggle.addEventListener('click', () => {
+                const isDarkMode = body.classList.toggle('dark-theme');
+                container.classList.toggle('dark-theme');
+                themeToggle.classList.toggle('dark-mode');
+    
+                themeToggle.title = isDarkMode ? 'Toggle light mode' : 'Toggle dark mode';
+    
+                // Save the theme preference
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            });
         });
     </script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Downloads - SSF2 Color Vault</title>
+    <link rel="icon" href="images/Logo_2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/Logo_2.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.5s;
+        }
+        .home-button {
+            display: block;
+            margin: 20px auto;
+            padding: 8px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+		.Downloads {
+		margin-left: -520px;
+		padding: 8px 30px;
+		}
+		.divider {
+            width: 100%;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            z-index: 999;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .theme-toggle:hover {
+            background-color: #555;
+        }
+        .theme-toggle.dark-mode {
+            background-color: #555;
+            color: #fff;
+        }
+        .dark-theme {
+            background-color: #131313; 
+            color: #fff;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+        .sun-and-moon {
+            fill: white;
+        }
+        .selector-for-some-widget {
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+       <h1 class="Downloads">Downloads</h1>
+       <a href="index.html"><span itemprop="name">Home</span></a> | <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer">LeVALHeart (Main creator of Sandbox)</a> | <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer">SSF2 Color Vault Youtube</a>
+
+
+<div class="divider"></div>
+To download SSF2 Sandbox, please select the appropriate version for your operating system below.
+<br>
+<br>
+<br>
+<strong>Latest Downloads:</strong>
+<br>
+<br>
+SSF2 Sandbox <img src="images/sandbox.png" alt="Sandbox Logo" width="20">:
+<br>
+<br>
+<ul>
+    <li>Google Drive: <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view?usp=share_link" target="_blank" rel="noopener noreferrer">Windowsx64 | SSF2 Sandbox 6.6.2</a> 
+    </ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+    </div>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const body = document.body;
+                const container = document.getElementById('main-container');
+                const themeToggle = document.getElementById('theme-toggle');
+                const toggleText = document.querySelector('.toggle-text');
+        
+                // Function to apply the theme
+                const applyTheme = (isDarkMode) => {
+                    if (isDarkMode) {
+                        body.classList.add('dark-theme');
+                        container.classList.add('dark-theme');
+                        themeToggle.classList.add('dark-mode');
+                        themeToggle.title = 'Toggle light mode';
+                    } else {
+                        body.classList.remove('dark-theme');
+                        container.classList.remove('dark-theme');
+                        themeToggle.classList.remove('dark-mode');
+                        themeToggle.title = 'Toggle dark mode';
+                    }
+                };
+        
+                // Check the saved theme preference on page load
+                const savedTheme = localStorage.getItem('theme');
+                const isDarkMode = savedTheme === 'dark';
+                applyTheme(isDarkMode);
+        
+                // Event listener for the theme toggle button
+                themeToggle.addEventListener('click', () => {
+                    const isDarkMode = body.classList.toggle('dark-theme');
+                    container.classList.toggle('dark-theme');
+                    themeToggle.classList.toggle('dark-mode');
+        
+                    themeToggle.title = isDarkMode ? 'Toggle light mode' : 'Toggle dark mode';
+        
+                    // Save the theme preference
+                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                });
+            });
+        </script>
+        
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
