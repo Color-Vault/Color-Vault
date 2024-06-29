@@ -701,10 +701,20 @@ function toggleGroupSelection(index) {
         currentTintStrength = activeGroup.tintStrength || 0;
 
         document.getElementById('hue-slider').value = currentHue;
+        document.getElementById('hue-value').innerText = currentHue;
+
         document.getElementById('brightness-slider').value = currentBrightness;
+        document.getElementById('brightness-value').innerText = currentBrightness;
+
         document.getElementById('contrast-slider').value = currentContrast;
+        document.getElementById('contrast-value').innerText = currentContrast;
+
         document.getElementById('saturation-slider').value = currentSaturation;
+        document.getElementById('saturation-value').innerText = currentSaturation;
+
         document.getElementById('tint-slider').value = currentTintStrength;
+        document.getElementById('tint-value').innerText = currentTintStrength;
+
         document.getElementById('tint-color').value = currentTintColor;
     }
 
