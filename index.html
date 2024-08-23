@@ -12,8 +12,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #181818;
+            color: #ffffff;
             transition: background-color 0.5s, color 0.5s;
         }
         .container {
@@ -28,35 +28,6 @@
             text-align: center;
             margin-bottom: 20px;
             transition: color 0.5s;
-        }
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            z-index: 999;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .theme-toggle:hover {
-            background-color: #555;
-        }
-        .theme-toggle.dark-mode {
-            background-color: #555;
-            color: #fff;
-        }
-        .dark-theme {
-            background-color: #131313; 
-            color: #fff;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-        }
-        .sun-and-moon {
-            fill: white;
         }
         .selector-for-some-widget {
             box-sizing: content-box;
@@ -81,26 +52,6 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-        <span class="toggle-text"></span>
-        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-            <mask class="moon" id="moon-mask">
-                <rect x="0" y="0" width="100%" height="100%" fill="black" />
-                <circle cx="12" cy="12" r="6" fill="white" />
-            </mask>
-            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
-            <g class="sun-beams" stroke="currentColor">
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </g>
-        </svg>
-    </button>
 
     <div class="container" id="main-container">
         <h1>Color Vault</h1>
@@ -129,49 +80,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
-            const container = document.getElementById('main-container');
-            const themeToggle = document.getElementById('theme-toggle');
-            const toggleText = document.querySelector('.toggle-text');
-    
-            // Function to apply the theme
-            const applyTheme = (isDarkMode) => {
-                if (isDarkMode) {
-                    body.classList.add('dark-theme');
-                    container.classList.add('dark-theme');
-                    themeToggle.classList.add('dark-mode');
-                    themeToggle.title = 'Toggle light mode';
-                } else {
-                    body.classList.remove('dark-theme');
-                    container.classList.remove('dark-theme');
-                    themeToggle.classList.remove('dark-mode');
-                    themeToggle.title = 'Toggle dark mode';
-                }
-            };
-    
-            // Check the saved theme preference on page load
-            const savedTheme = localStorage.getItem('theme');
-            const isDarkMode = savedTheme === 'dark';
-            applyTheme(isDarkMode);
-    
-            // Event listener for the theme toggle button
-            themeToggle.addEventListener('click', () => {
-                const isDarkMode = body.classList.toggle('dark-theme');
-                container.classList.toggle('dark-theme');
-                themeToggle.classList.toggle('dark-mode');
-    
-                themeToggle.title = isDarkMode ? 'Toggle light mode' : 'Toggle dark mode';
-    
-                // Save the theme preference
-                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            });
-        });
-    </script>
-    
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

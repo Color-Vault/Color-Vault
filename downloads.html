@@ -12,8 +12,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #181818;
+            color: #ffffff;
             transition: background-color 0.5s, color 0.5s;
         }
         .container {
@@ -42,46 +42,55 @@
         .home-button:hover {
             background-color: #0056b3;
         }
-		.Downloads {
-		margin-left: -520px;
-		padding: 8px 30px;
-		}
-		.divider {
+        .Downloads {
+            margin-left: -520px;
+            padding: 8px 30px;
+        }
+        .divider {
             width: 100%;
             border-top: 1px solid #ccc;
             margin: 20px 0;
         }
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #1a1a1a;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            z-index: 999;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .theme-toggle:hover {
-            background-color: #555;
-        }
-        .theme-toggle.dark-mode {
-            background-color: #555;
-            color: #fff;
-        }
-        .dark-theme {
-            background-color: #131313; 
-            color: #fff;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-        }
-        .sun-and-moon {
-            fill: white;
-        }
         .selector-for-some-widget {
             box-sizing: content-box;
+        }
+        .collapsible {
+            background-color: #181818; /* Button background color */
+            color: rgb(255, 255, 255);              /* Button text color */
+            cursor: pointer;           /* Change cursor on hover */
+            padding: 10px 20px;        /* Button padding */
+            width: 100%;               /* Full width button */
+            border: none;              /* Remove button border */
+            text-align: left;          /* Align text to the left */
+            outline: none;             /* Remove outline on focus */
+            font-size: 16px;           /* Font size */
+            border-radius: 5px;        /* Rounded corners */
+            display: flex;             /* Flexbox for aligning icon and text */
+            align-items: center;       /* Center align icon and text */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        .collapsible:hover {
+            background-color: #ffffff; /* Hover effect */
+            color: rgb(0, 0, 0);              /* Button text color */
+        }
+
+        .collapsible.active {
+            background-color: #ffffff; /* Active state */
+        }
+
+        .collapsible-icon {
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .content {
+            padding: 10px 20px;        /* Padding around the content */
+            display: none;             /* Initially hidden */
+            overflow: hidden;          /* Ensures content doesn't overflow */
+            background-color: #181818; /* Background color of the collapsible content */
+            margin-top: 5px;           /* Space between button and content */
+            border: 1px solid #ccc;    /* Border around the content */
+            border-radius: 5px;        /* Rounded corners for content */
         }
     </style>
 </head>
@@ -91,71 +100,83 @@
        <h1 class="Downloads">Downloads</h1>
        <a href="index.html"><span itemprop="name">Home</span></a> | <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer">LeVALHeart (Main creator of Sandbox)</a> | <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer">SSF2 Color Vault Youtube</a>
 
+        <div class="divider"></div>
+        To download SSF2 Sandbox, please select the appropriate version for your operating system below.
+        <br>
+        <br>
+        <br>
+        <strong>Latest Downloads:</strong>
+        <br>
+        <br>
+        <button class="collapsible"><span class="change_icon"><img src="images/sandbox.png" alt="Sandbox Icon"></span><b class="change_title">SSF2 Sandbox overhaul</b></button>
+        <div class="content">
 
-<div class="divider"></div>
-To download SSF2 Sandbox, please select the appropriate version for your operating system below.
-<br>
-<br>
-<br>
-<strong>Latest Downloads:</strong>
-<br>
-<br>
-SSF2 Sandbox <img src="images/sandbox.png" alt="Sandbox Logo" width="20">:
-<br>
-<br>
-<ul>
-    <li>Google Drive: <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view?usp=share_link" target="_blank" rel="noopener noreferrer">Windowsx64 | SSF2 Sandbox 6.6.2</a> 
-    </ul>
-<br>
-<br>
-<br>
-<br>
-<br>
+            <li>Google Drive: <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank" rel="noopener noreferrer">SSF2 Sandbox overhaul</a> 
+            <div class="divider"></div>
+            <br>   
+            <b>Changes</b><br>
+            - Easy xp chars: no slot limit, refresh, no mappings.<br>
+            - Final Smash Meter and other ports.<br>
+            - SSBU matchup screen.<br>
+            - Len update: balance and details.<br>
+            - Content from Val's side modpack:<br>
+            - for the stage too.<br>
+            - Use png/jpg as background.<br>
+            - Import your alt stages.<br>
+            - Add stages icons.<br>
+
+            <b>Fixes</b><br>
+            - Broken PAGE 3.<br>
+            - XP costumes not applying in menu.<br>
+            - v9b duplicating smash ball.<br>
+            - All items disappearing after destroy smash ball.<br>
+            - Unnecessary HUD created by stats update.<br>
+            - v9b chars projectiles can’t break smash ball.<br>
+            - v9b chars transformation freezing, softlocking or/and disappearing character.<br>
+            - Classic mode: Broken Crystal Smash.<br>
+            - Random softlock in Classic Mode.<br>
+            - XP chars with costume support not applying in Classic and All-Star modes.<br>
+            - Classic mode not using character's name at start.<br>
+            - Some Assists trophies not working properly (eg: frozen bomb).<br>
+            - Removed leftover code that prevents use costumes for certain characters.<br>
+            - The other mod: Can't add music or alts in Wario Ware Inc.<br>
+            - Len learning hadoken or Ryu throwing neco arc for the lols.<br>
+            - Random Stage slot not working Fixed.<br>
+        </div>
+        
+        <button class="collapsible"><span class="change_icon"><img src="images/sandbox.png" alt="Sandbox Icon"></span><b class="change_title">SSF2 Sandbox 6.6.2</b></button>
+        <div class="content">
+            <ul>
+                <li>Google Drive: <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view?usp=share_link" target="_blank" rel="noopener noreferrer">SSF2 Sandbox 6.6.2</a> 
+            </ul>   
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 
-
-        <script>
+            <script>
             document.addEventListener('DOMContentLoaded', () => {
-                const body = document.body;
-                const container = document.getElementById('main-container');
-                const themeToggle = document.getElementById('theme-toggle');
-                const toggleText = document.querySelector('.toggle-text');
+                            // Collapsible functionality
+                const collapsibles = document.querySelectorAll('.collapsible');
         
-                // Function to apply the theme
-                const applyTheme = (isDarkMode) => {
-                    if (isDarkMode) {
-                        body.classList.add('dark-theme');
-                        container.classList.add('dark-theme');
-                        themeToggle.classList.add('dark-mode');
-                        themeToggle.title = 'Toggle light mode';
-                    } else {
-                        body.classList.remove('dark-theme');
-                        container.classList.remove('dark-theme');
-                        themeToggle.classList.remove('dark-mode');
-                        themeToggle.title = 'Toggle dark mode';
-                    }
-                };
-        
-                // Check the saved theme preference on page load
-                const savedTheme = localStorage.getItem('theme');
-                const isDarkMode = savedTheme === 'dark';
-                applyTheme(isDarkMode);
-        
-                // Event listener for the theme toggle button
-                themeToggle.addEventListener('click', () => {
-                    const isDarkMode = body.classList.toggle('dark-theme');
-                    container.classList.toggle('dark-theme');
-                    themeToggle.classList.toggle('dark-mode');
-        
-                    themeToggle.title = isDarkMode ? 'Toggle light mode' : 'Toggle dark mode';
-        
-                    // Save the theme preference
-                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                collapsibles.forEach(collapsible => {
+                    collapsible.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        const content = this.nextElementSibling;
+                        if (content.style.display === 'block') {
+                            content.style.display = 'none';
+                        } else {
+                            content.style.display = 'block';
+                        }
+                    });
                 });
             });
-        </script>
-        
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
