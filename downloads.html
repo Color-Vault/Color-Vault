@@ -8,26 +8,35 @@
     <link rel="icon" href="images/Logo_2.ico" type="image/x-icon">
     <link rel="shortcut icon" href="images/Logo_2.ico" type="image/x-icon">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background: 
+            url('images/Sandbox_big.png') no-repeat  top left, /* Second image */
+            url('images/shadowexport.png') no-repeat bottom right; /* First image */
+            background-size: 25% auto;
+            background-repeat: no-repeat; /* Prevent the image from repeating */
             background-color: #181818;
             color: #ffffff;
-            transition: background-color 0.5s, color 0.5s;
+            display: flex;
+            flex-direction: column;
         }
         .container {
+            flex: 1; /* This makes the container take up the remaining space */
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+            background-color: #181818;
+            margin-bottom: 60px; /* Adjust this value to create the desired space */
         }
         h1 {
             text-align: center;
             margin-bottom: 20px;
-            transition: color 0.5s;
         }
         .home-button {
             display: block;
@@ -51,9 +60,6 @@
             border-top: 1px solid #ccc;
             margin: 20px 0;
         }
-        .selector-for-some-widget {
-            box-sizing: content-box;
-        }
         .collapsible {
             background-color: #181818; /* Button background color */
             color: rgb(255, 255, 255);              /* Button text color */
@@ -69,20 +75,17 @@
             align-items: center;       /* Center align icon and text */
             transition: background-color 0.3s; /* Transition effect */
         }
-
         .collapsible:hover {
             background-color: #ffffff; /* Hover effect */
             color: rgb(0, 0, 0);              /* Button text color */
         }
-
         .collapsible.active {
             background-color: #ffffff; /* Active state */
+            color: rgb(0, 0, 0);              /* Button text color */
         }
-
         .collapsible-icon {
             margin-right: 10px; /* Space between icon and text */
         }
-
         .content {
             padding: 10px 20px;        /* Padding around the content */
             display: none;             /* Initially hidden */
@@ -92,13 +95,35 @@
             border: 1px solid #ccc;    /* Border around the content */
             border-radius: 5px;        /* Rounded corners for content */
         }
+        footer {
+            padding: -10px;
+            margin-top: -40px;
+            text-align: center;
+            background-color: #0e0d0d;
+            color: #ffffff;
+            border-top: 1px solid #ccc;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer img {
+            vertical-align: middle;
+            margin-top: -25px;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
     </style>
 </head>
 <body>
-    
     <div class="container">
-       <h1 class="Downloads">Downloads</h1>
-       <a href="index.html"><span itemprop="name">Home</span></a> | <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer">LeVALHeart (Main creator of Sandbox)</a> | <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer">SSF2 Color Vault Youtube</a>
+        <h1 class="Downloads">Downloads</h1>
+        <a href="index.html"><span itemprop="name">Home</span></a> | 
+        <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer">LeVALHeart (Main creator of Sandbox)</a> | 
+        <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer">SSF2 Color Vault Youtube</a>
 
         <div class="divider"></div>
         To download SSF2 Sandbox, please select the appropriate version for your operating system below.
@@ -110,21 +135,18 @@
         <br>
         <button class="collapsible"><span class="change_icon"><img src="images/sandbox.png" alt="Sandbox Icon"></span><b class="change_title">SSF2 Sandbox overhaul</b></button>
         <div class="content">
-
             <li>Google Drive: <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank" rel="noopener noreferrer">SSF2 Sandbox overhaul</a> 
             <div class="divider"></div>
-            <br>   
             <b>Changes</b><br>
             - Easy xp chars: no slot limit, refresh, no mappings.<br>
             - Final Smash Meter and other ports.<br>
             - SSBU matchup screen.<br>
             - Len update: balance and details.<br>
-            - Content from Val's side modpack:<br>
+            <b>Content from Val's side modpack:</b><br>
             - for the stage too.<br>
             - Use png/jpg as background.<br>
             - Import your alt stages.<br>
             - Add stages icons.<br>
-
             <b>Fixes</b><br>
             - Broken PAGE 3.<br>
             - XP costumes not applying in menu.<br>
@@ -150,33 +172,34 @@
                 <li>Google Drive: <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view?usp=share_link" target="_blank" rel="noopener noreferrer">SSF2 Sandbox 6.6.2</a> 
             </ul>   
         </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br><br>
     </div>
 
-            <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                            // Collapsible functionality
-                const collapsibles = document.querySelectorAll('.collapsible');
-        
-                collapsibles.forEach(collapsible => {
-                    collapsible.addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        const content = this.nextElementSibling;
-                        if (content.style.display === 'block') {
-                            content.style.display = 'none';
-                        } else {
-                            content.style.display = 'block';
-                        }
-                    });
-                });
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Collapsible functionality
+        const collapsibles = document.querySelectorAll('.collapsible');
+
+        collapsibles.forEach(collapsible => {
+            collapsible.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
             });
+        });
+    });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer>
+        <p>Managed by JaiCherryCola ♥. Originally designed and created by MasterWex.</p>
+        Site hosted by Github Pages</a> 
+        <img src="images/github.png" alt="GitHub Logo" style="margin-bottom: -4px;">
+    </footer>
 </body>
 </html>
