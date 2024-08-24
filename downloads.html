@@ -11,93 +11,56 @@
         html, body {
             height: 100%;
             margin: 0;
+            background-color: #181818;
+            color: #ffffff;
         }
         body {
             font-family: Arial, sans-serif;
             background: 
-            url('images/Sandbox_big.png') no-repeat  top left, /* Second image */
-            url('images/shadowexport.png') no-repeat bottom right; /* First image */
+            url('images/Sandbox_big.png') no-repeat top left, 
+            url('images/shadowexport.png') no-repeat bottom right;
             background-size: 25% auto;
-            background-repeat: no-repeat; /* Prevent the image from repeating */
-            background-color: #181818;
-            color: #ffffff;
             display: flex;
             flex-direction: column;
         }
-        .container {
-            flex: 1; /* This makes the container take up the remaining space */
+        .custom-container {
+            flex: 1;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             background-color: #181818;
-            margin-bottom: 60px; /* Adjust this value to create the desired space */
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .home-button {
-            display: block;
-            margin: 20px auto;
-            padding: 8px 30px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .home-button:hover {
-            background-color: #0056b3;
-        }
-        .Downloads {
-            margin-left: -520px;
-            padding: 8px 30px;
-        }
-        .divider {
-            width: 100%;
-            border-top: 1px solid #ccc;
-            margin: 20px 0;
+            margin-bottom: 60px;
         }
         .collapsible {
-            background-color: #181818; /* Button background color */
-            color: rgb(255, 255, 255);              /* Button text color */
-            cursor: pointer;           /* Change cursor on hover */
-            padding: 10px 20px;        /* Button padding */
-            width: 100%;               /* Full width button */
-            border: none;              /* Remove button border */
-            text-align: left;          /* Align text to the left */
-            outline: none;             /* Remove outline on focus */
-            font-size: 16px;           /* Font size */
-            border-radius: 5px;        /* Rounded corners */
-            display: flex;             /* Flexbox for aligning icon and text */
-            align-items: center;       /* Center align icon and text */
-            transition: background-color 0.3s; /* Transition effect */
-        }
-        .collapsible:hover {
-            background-color: #ffffff; /* Hover effect */
-            color: rgb(0, 0, 0);              /* Button text color */
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
         }
         .collapsible.active {
-            background-color: #ffffff; /* Active state */
-            color: rgb(0, 0, 0);              /* Button text color */
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
         }
         .collapsible-icon {
-            margin-right: 10px; /* Space between icon and text */
+            margin-right: 10px;
         }
         .content {
-            padding: 10px 20px;        /* Padding around the content */
-            display: none;             /* Initially hidden */
-            overflow: hidden;          /* Ensures content doesn't overflow */
-            background-color: #181818; /* Background color of the collapsible content */
-            margin-top: 5px;           /* Space between button and content */
-            border: 1px solid #ccc;    /* Border around the content */
-            border-radius: 5px;        /* Rounded corners for content */
+            padding: 10px 20px;
+            display: none;
+            overflow: hidden;
+            background-color: #181818;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         footer {
-            padding: -10px;
-            margin-top: -40px;
+            padding: 10px 0;
             text-align: center;
             background-color: #0e0d0d;
             color: #ffffff;
@@ -119,91 +82,87 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="Downloads">Downloads</h1>
-        <a href="index.html"><span itemprop="name">Home</span></a> | 
-        <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer">LeVALHeart</a> | 
-        <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer">SSF2 Color Vault</a> | <a href="https://discord.gg/g9CWyHBt">SSF2 Sandbox</a>
-
-        <div class="divider"></div>
-        To download SSF2 Sandbox, please select the appropriate version for your operating system below.
-        <br>
-        <br>
-        <br>
-        <strong>Latest Downloads:</strong>
-        <br>
-        <br>
-        <button class="collapsible"><span class="change_icon"><img src="images/sandbox.png" alt="Sandbox Icon"></span><b class="change_title">SSF2 Sandbox overhaul</b></button>
-        <div class="content">
-            <li>Google Drive: <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download Link</a> 
-            <div class="divider"></div>
-            <b>Changes</b><br>
-            - Easy xp chars: no slot limit, refresh, no mappings.<br>
-            - Final Smash Meter and other ports.<br>
-            - SSBU matchup screen.<br>
-            - Len update: balance and details.<br>
-            <b>Content from Val's side modpack:</b><br>
-            - for the stage too.<br>
-            - Use png/jpg as background.<br>
-            - Import your alt stages.<br>
-            - Add stages icons.<br>
-            <b>Fixes</b><br>
-            - Broken PAGE 3.<br>
-            - XP costumes not applying in menu.<br>
-            - v9b duplicating smash ball.<br>
-            - All items disappearing after destroy smash ball.<br>
-            - Unnecessary HUD created by stats update.<br>
-            - v9b chars projectiles can’t break smash ball.<br>
-            - v9b chars transformation freezing, softlocking or/and disappearing character.<br>
-            - Classic mode: Broken Crystal Smash.<br>
-            - Random softlock in Classic Mode.<br>
-            - XP chars with costume support not applying in Classic and All-Star modes.<br>
-            - Classic mode not using character's name at start.<br>
-            - Some Assists trophies not working properly (eg: frozen bomb).<br>
-            - Removed leftover code that prevents use costumes for certain characters.<br>
-            - The other mod: Can't add music or alts in Wario Ware Inc.<br>
-            - Len learning hadoken or Ryu throwing neco arc for the lols.<br>
-            - Random Stage slot not working Fixed.<br>
+    <div class="custom-container">
+        <h1 class="text-center">Downloads</h1>
+        <div class="d-flex justify-content-center">
+            <a href="index.html" class="text-decoration-none text-white me-3">Home</a>
+            <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white me-3">LeVALHeart</a>
+            <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white me-3">SSF2 Color Vault</a>
+            <a href="https://discord.gg/g9CWyHBt" class="text-decoration-none text-white">SSF2 Sandbox</a>
         </div>
+
+        <hr class="my-4">
+        <p>To download SSF2 Sandbox, please select the appropriate version for your operating system below.</p>
+        <p><strong>Latest Downloads:</strong></p>
         
-        <button class="collapsible"><span class="change_icon"><img src="images/sandbox.png" alt="Sandbox Icon"></span><b class="change_title">SSF2 Sandbox 6.6.2</b></button>
+        <button class="collapsible btn btn-dark mb-2"><img src="images/sandbox.png" alt="Sandbox Icon" class="collapsible-icon"><b>SSF2 Sandbox overhaul</b></button>
         <div class="content">
             <ul>
-          <li>Google Drive: <a href="https://drive.google.com/file/d/1an15RmcaWA8poDUvkWJACqkVvJg6f91a/view?usp=share_link" target="_blank" rel="noopener noreferrer">Download Link</a>
-             <div class="divider"></div>
-             <b>DL: Patch 6.6.2 SSF2 Sandbox for v1.3.1.2</b><br>
-             <div class="divider"></div>
-             A somewhat old mod that has several interesting stuff...<br>
-             Featuring:<br>
-             - Character XP Support (v0.9b, 1.3.X.X).<br>
-             - Stage XP Support (v0.9b).<br>
-             - 6 custom stages and music.<br>
-             - 5 cool characters: Jotaro, Dio, X, Zero and Len.<br>
-             - Stage music.<br>
-             - Additional options (save rooms, hitbox, etc).<br>
-             - Custom UI.<br>
-             - A great announcer.<br>
-             - And more, that I don't quite remember.<br>
-            </div>
+                <li>Google Drive: <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
+                <li>Mediafire: <a href="https://www.mediafire.com/file/v0tajcc2uvlezsq/ssf2-sandbox-overhaul-full.rar/file" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Not available yet</a></li>
+                <hr class="my-4">
+                <b>Changes</b><br>
+                - Easy xp chars: no slot limit, refresh, no mappings.<br>
+                - Final Smash Meter and other ports.<br>
+                - SSBU matchup screen.<br>
+                - Len update: balance and details.<br>
+                <b>Content from Val's side modpack:</b><br>
+                - for the stage too.<br>
+                - Use png/jpg as background.<br>
+                - Import your alt stages.<br>
+                - Add stages icons.<br>
+                <b>Fixes</b><br>
+                - Broken PAGE 3.<br>
+                - XP costumes not applying in menu.<br>
+                - v9b duplicating smash ball.<br>
+                - All items disappearing after destroy smash ball.<br>
+                - Unnecessary HUD created by stats update.<br>
+                - v9b chars projectiles can’t break smash ball.<br>
+                - v9b chars transformation freezing, softlocking or/and disappearing character.<br>
+                - Classic mode: Broken Crystal Smash.<br>
+                - Random softlock in Classic Mode.<br>
+                - XP chars with costume support not applying in Classic and All-Star modes.<br>
+                - Classic mode not using character's name at start.<br>
+                - Some Assists trophies not working properly (eg: frozen bomb).<br>
+                - Removed leftover code that prevents use costumes for certain characters.<br>
+                - The other mod: Can't add music or alts in Wario Ware Inc.<br>
+                - Len learning hadoken or Ryu throwing neco arc for the lols.<br>
+                - Random Stage slot not working Fixed.<br>
+            </ul>
+        </div>
+
+        <button class="collapsible btn btn-dark mb-2"><img src="images/sandbox.png" alt="Sandbox Icon" class="collapsible-icon"><b>SSF2 Sandbox 6.6.2</b></button>
+        <div class="content">
+            <ul>
+                <li>Google Drive: <a href="https://drive.google.com/file/d/1o0QEFyY9hA0JJhOrhFtrViCR2mV-gVfp/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
+                <li>Mediafire: <a href="https://www.mediafire.com/file/z0mgl56e9ruhynu/SSF2Sandbox6.6.2.rar/file" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Not available yet</a></li>
+                <hr class="my-4">
+                <b>DL: Patch 6.6.2 SSF2 Sandbox for v1.3.1.2</b><br>
+                <hr class="my-4">
+                A somewhat old mod that has several interesting stuff...<br>
+                Featuring:<br>
+                - Character XP Support (v0.9b, 1.3.X.X).<br>
+                - Stage XP Support (v0.9b).<br>
+                - 6 custom stages and music.<br>
+                - 5 cool characters: Jotaro, Dio, X, Zero, and Len.<br>
+                - Stage music.<br>
+                - Additional options (save rooms, hitbox, etc).<br>
+                - Custom UI.<br>
+                - A great announcer.<br>
+                - And more, that I don't quite remember.<br>
             </ul>   
         </div>
-        <br><br><br><br><br>
     </div>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Collapsible functionality
         const collapsibles = document.querySelectorAll('.collapsible');
 
         collapsibles.forEach(collapsible => {
             collapsible.addEventListener('click', function() {
                 this.classList.toggle('active');
                 const content = this.nextElementSibling;
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                } else {
-                    content.style.display = 'block';
-                }
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
             });
         });
     });
@@ -213,8 +172,7 @@
 
     <footer>
         <p>Managed by JaiCherryCola ♥. Originally designed and created by MasterWex.</p>
-        Site hosted by Github Pages</a> 
-        <img src="images/github.png" alt="GitHub Logo" style="margin-bottom: -4px;">
+        <p>Site hosted by Github Pages <img src="images/github.png" alt="GitHub Logo" style="margin-bottom: -4px;"></p>
     </footer>
 </body>
 </html>
