@@ -782,6 +782,7 @@
         </div>
     </div>
 
+    <script src="color creator/app2.js"></script> <!-- Ensure this is included before your script -->
     <script>
         let scale = 1;
         let panning = false;
@@ -1155,12 +1156,10 @@
         });
 
         // Ensure this function is called when the page loads
-        async function populateDropdown() {
+        function populateDropdown() {
             console.log('Populating dropdown...');
             try {
-                const response = await fetch('/sheets'); // Fetch file names from the server
-                const files = await response.json();
-                console.log('Loaded files:', files);
+                console.log('Loaded image list:', imageList);
                 
                 const dropdown = document.getElementById('infoDropdown');
                 
@@ -1170,14 +1169,14 @@
                 // Add "choose a character" option
                 const defaultOption = document.createElement('option');
                 defaultOption.value = "";
-                defaultOption.textContent = "Choose a character";
+                defaultOption.textContent = "Choose an image";
                 dropdown.appendChild(defaultOption);
 
-                // Populate dropdown with file names
-                files.forEach(file => {
+                // Populate dropdown with URLs from imageList
+                imageList.forEach(url => {
                     const option = document.createElement('option');
-                    option.value = file;  // Store the filename as the value
-                    option.textContent = file;
+                    option.value = url;  // Store the URL as the value
+                    option.textContent = url.split('/').pop(); // Display the file name
                     dropdown.appendChild(option);
                 });
 
@@ -1189,6 +1188,64 @@
 
         // Call populateDropdown when the page loads
         document.addEventListener('DOMContentLoaded', populateDropdown);
+
+        document.getElementById('infoDropdown').addEventListener('change', function(event) {
+            const selectedUrl = event.target.value;
+            
+            if (!selectedUrl) {
+                console.log('No image selected');
+                return;
+            }
+
+            // Load the selected image file
+            const img = new Image();
+            img.src = selectedUrl;
+            img.onload = function() {
+                // Get the XP canvas and container
+                const canvas = document.getElementById('xpImageCanvas');
+                const container = document.getElementById('xpImageCanvasContainer');
+                const zoomControls = document.querySelector('.canvas-section:last-child .canvas-zoom-controls');
+                
+                // Get the context with willReadFrequently option
+                const ctx = canvas.getContext('2d', { willReadFrequently: true });
+                
+                // Set canvas dimensions to image dimensions
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                // Show container and zoom controls
+                container.style.display = 'block';
+                zoomControls.style.display = 'flex';
+
+                // Calculate scale to fit image in container
+                const containerRect = container.getBoundingClientRect();
+                const containerWidth = containerRect.width;
+                const containerHeight = containerRect.height;
+
+                const imageWidth = img.width;
+                const imageHeight = img.height;
+
+                const scaleX = containerWidth / imageWidth;
+                const scaleY = containerHeight / imageHeight;
+                const newScale = Math.min(scaleX, scaleY); // Fit to container
+
+                // Set scale and update slider
+                xpScale = newScale;
+                document.getElementById('xpZoomSlider').value = newScale;
+                document.getElementById('xpZoomValue').textContent = `${Math.round(newScale * 100)}%`;
+
+                // Center the image in the container
+                xpPointX = (containerWidth - imageWidth * xpScale) / 2;
+                xpPointY = (containerHeight - imageHeight * xpScale) / 2;
+
+                canvas.style.transform = `translate(${xpPointX}px, ${xpPointY}px) scale(${xpScale})`;
+                canvas.style.transformOrigin = 'top left';
+
+                // Process the image as a recolor sheet
+                processImageDataForSequences(ctx, img, true);
+            };
+        });
 
         document.getElementById('mainZoomSlider').addEventListener('input', function(e) {
             scale = parseFloat(e.target.value);
@@ -1994,65 +2051,6 @@
             
             updateProgress();
         }
-
-        // Update the dropdown change event to use the new function
-        document.getElementById('infoDropdown').addEventListener('change', function(event) {
-            const selectedFile = event.target.value;
-            
-            if (!selectedFile) {
-                console.log('No character selected');
-                return;
-            }
-
-            // Load the selected image file
-            const img = new Image();
-            img.src = `/sheets/${selectedFile}`;
-            img.onload = function() {
-                // Get the XP canvas and container
-                const canvas = document.getElementById('xpImageCanvas');
-                const container = document.getElementById('xpImageCanvasContainer');
-                const zoomControls = document.querySelector('.canvas-section:last-child .canvas-zoom-controls');
-                
-                // Get the context with willReadFrequently option
-                const ctx = canvas.getContext('2d', { willReadFrequently: true });
-                
-                // Set canvas dimensions to image dimensions
-                canvas.width = img.width;
-                canvas.height = img.height;
-                ctx.drawImage(img, 0, 0);
-
-                // Show container and zoom controls
-                container.style.display = 'block';
-                zoomControls.style.display = 'flex';
-
-                // Calculate scale to fit image in container
-                const containerRect = container.getBoundingClientRect();
-                const containerWidth = containerRect.width;
-                const containerHeight = containerRect.height;
-
-                const imageWidth = imageCanvas.width;
-                const imageHeight = imageCanvas.height;
-
-                const scaleX = containerWidth / imageWidth;
-                const scaleY = containerHeight / imageHeight;
-                const newScale = Math.min(scaleX, scaleY); // Fit to container
-
-                // Set scale and update slider
-                xpScale = newScale;
-                document.getElementById('xpZoomSlider').value = newScale;
-                document.getElementById('xpZoomValue').textContent = `${Math.round(newScale * 100)}%`;
-
-                // Center the image in the container
-                xpPointX = (containerWidth - imageWidth * xpScale) / 2;
-                xpPointY = (containerHeight - imageHeight * xpScale) / 2;
-
-                canvas.style.transform = `translate(${xpPointX}px, ${xpPointY}px) scale(${xpScale})`;
-                canvas.style.transformOrigin = 'top left';
-
-                // Process the image as a recolor sheet
-                processImageDataForSequences(ctx, img, true);
-            };
-        });
 
         // Add event listeners for the new buttons
         document.getElementById('createRecolorButton').addEventListener('click', function() {
