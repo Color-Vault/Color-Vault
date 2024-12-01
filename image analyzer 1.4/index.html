@@ -782,7 +782,6 @@
         </div>
     </div>
 
-    <script src="color creator/app2.js"></script> <!-- Ensure this is included before your script -->
     <script>
         let scale = 1;
         let panning = false;
@@ -1156,10 +1155,13 @@
         });
 
         // Ensure this function is called when the page loads
-        function populateDropdown() {
+        async function populateDropdown() {
             console.log('Populating dropdown...');
             try {
-                console.log('Loaded image list:', imageList);
+                // Fetch URLs from a static JSON file
+                const response = await fetch('urls.json'); // Ensure this file is accessible in your static site
+                const urls = await response.json();
+                console.log('Loaded URLs:', urls);
                 
                 const dropdown = document.getElementById('infoDropdown');
                 
@@ -1172,11 +1174,11 @@
                 defaultOption.textContent = "Choose an image";
                 dropdown.appendChild(defaultOption);
 
-                // Populate dropdown with URLs from imageList
-                imageList.forEach(url => {
+                // Populate dropdown with URLs
+                urls.forEach(item => {
                     const option = document.createElement('option');
-                    option.value = url;  // Store the URL as the value
-                    option.textContent = url.split('/').pop(); // Display the file name
+                    option.value = item.url;  // Store the URL as the value
+                    option.textContent = item.name; // Display the name
                     dropdown.appendChild(option);
                 });
 
@@ -1199,6 +1201,7 @@
 
             // Load the selected image file
             const img = new Image();
+            img.crossOrigin = 'Anonymous'; // Set crossOrigin attribute
             img.src = selectedUrl;
             img.onload = function() {
                 // Get the XP canvas and container
