@@ -116,12 +116,7 @@ function selectAllColors() {
     let colorBoxes = palette.getElementsByClassName('color-box');
 
     for (let colorBox of colorBoxes) {
-        let color = colorBox.style.backgroundColor;
-        if (!selectedColors.has(color)) {
-            selectedColors.add(color);
-            colorBox.classList.add('selected');
-            colorBox.classList.add('hover');
-        }
+        colorBox.click(); // Simulate a click on each colorBox
     }
     updateGroupColors();
     applyAdjustments(); // Apply all adjustments after selection changes
