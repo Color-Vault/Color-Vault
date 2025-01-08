@@ -13,9 +13,11 @@ document.getElementById('canvas').addEventListener('mouseout', hideColorPreview)
 document.getElementById('canvas').addEventListener('click', handleCanvasClick);
 document.getElementById('download-groups-btn').addEventListener('click', downloadGroups);
 document.getElementById('upload-groups').addEventListener('change', uploadGroups);
+document.getElementById('select-all-colors-btn').addEventListener('click', selectAllColors);
 document.getElementById('cancel-group-name-btn').addEventListener('click', function() {
     document.getElementById('group-name-popup').style.display = 'none';
 });
+
 
 
 
@@ -109,6 +111,23 @@ function populateUrlSelect() {
     });
 }
 
+function selectAllColors() {
+    let palette = document.getElementById('palette');
+    let colorBoxes = palette.getElementsByClassName('color-box');
+
+    for (let colorBox of colorBoxes) {
+        let color = colorBox.style.backgroundColor;
+        if (!selectedColors.has(color)) {
+            selectedColors.add(color);
+            colorBox.classList.add('selected');
+            colorBox.classList.add('hover');
+        }
+    }
+    updateGroupColors();
+    applyAdjustments(); // Apply all adjustments after selection changes
+    saveGroupsLocally();
+}
+
 function loadImageFromUrl(url) {
     // Hide popups when a new image is loaded
     document.getElementById('group-name-popup').style.display = 'none';
@@ -173,12 +192,7 @@ function handleImageUpload(event) {
             tempCanvas.height = tempImage.height;
             tempCtx.drawImage(tempImage, 0, 0);
             let tempImageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
-            let colorSet = getColorSet(tempImageData);
-
-            if (colorSet.size > 500) {
-                alert("The image has more than 500 colors and cannot be loaded.");
-                return;
-            }
+            let colorSet = getColorSet(tempImageData);           
 
             image = new Image(); // Ensure `image` is initialized here
             image.src = e.target.result;
