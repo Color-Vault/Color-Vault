@@ -1,205 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>Downloads - SSF2 Sandbox</title>
-    <link rel="icon" href="images/sandbox_logo.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="images/sandbox_logo.ico" type="image/x-icon">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #181818;
-            color: #ffffff;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: 
-            url('images/Sandbox_big.png') no-repeat top left, 
-            url('images/shadowexport.png') no-repeat bottom right;
-            background-size: 25% auto;
-            display: flex;
-            flex-direction: column;
-        }
-        .custom-container {
-            flex: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            background-color: #181818;
-            margin-bottom: 60px;
-        }
-        .collapsible {
-            cursor: pointer;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        .collapsible.active {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-        }
-        .collapsible-icon {
-            margin-right: 10px;
-        }
-        .content {
-            padding: 10px 20px;
-            display: none;
-            overflow: hidden;
-            background-color: #181818;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        footer {
-            padding: 10px 0;
-            text-align: center;
-            background-color: #0e0d0d;
-            color: #ffffff;
-            border-top: 1px solid #ccc;
-        }
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        footer img {
-            vertical-align: middle;
-            margin-top: -25px;
-            overflow-clip-margin: content-box;
-            overflow: clip;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloads - SSF2 Sandbox</title>
+  <link rel="icon" href="images/sandbox_logo.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/sandbox_logo.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('images/Sandbox_big.png'), url('images/shadowexport.png');
+      background-repeat: no-repeat, no-repeat;
+      background-position: top left, bottom right;
+      background-size: 25% auto, 25% auto;
+    }
+
+    .custom-container {
+      flex: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      width: 100%;
+    }
+
+    .nav-links a {
+      color: #bbbbbb;
+      margin-right: 20px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .collapsible {
+      width: 100%;
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: left;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .collapsible img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    .collapsible.active {
+      background-color: #333;
+    }
+
+    .content {
+      display: none;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      border: 1px solid #333;
+      color: #ddd;
+    }
+
+    .content a {
+      color: #4da3ff;
+      text-decoration: none;
+    }
+
+    .content a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #0e0d0d;
+      color: #888;
+      text-align: center;
+      padding: 15px;
+      border-top: 1px solid #333;
+    }
+
+    footer img {
+      height: 24px;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    hr {
+      border-top: 1px solid #444;
+    }
+  </style>
 </head>
 <body>
-    <div class="custom-container">
-        <h1 class="text-center">Downloads</h1>
-        <div class="d-flex justify-content-center">
-            <a href="index.html" class="text-decoration-none text-white me-3">Home</a>
-            <a href="https://www.youtube.com/@LeVALHeart" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white me-3">LeVALHeart</a>
-            <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white me-3">SSF2 Color Vault</a>
-            <a href="https://discord.com/invite/cezbm2hxev" class="text-decoration-none text-white">SSF2 Sandbox</a>
-        </div>
 
-        <hr class="my-4">
-        <p>To download SSF2 Sandbox, please select the appropriate version for your operating system below.</p>
-        <p><strong>Latest Downloads:</strong></p> 
+  <div class="custom-container">
+    <h1 class="text-center mb-4">SSF2 Sandbox</h1>
 
-        <button class="collapsible btn btn-dark mb-2"><img src="images/sandbox.png" alt="Sandbox Icon" class="collapsible-icon"><b>SSF2 Sandbox 6.6.2 + QoL changes <b>*NEW*</b></b></button>
-        <div class="content">
-            <ul>
-                <li>Full game + mod (957MB): <a href="https://drive.google.com/file/d/1vAK7P5vGReZ5fSlMdLwkIlUcgQKdfB4v/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <li>Mod content only (204MB): <a href="https://drive.google.com/file/d/1fxsf6LTgFJGX0DipfsdfMYPLA3A9L5n5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <hr class="my-4">
-                <b>Changes</b><br>
-                - v9b stages support with some improvements.<br>
-                - Include some stages like Sliph Co., Shadow Moses Island, Distant Planet, etc<br>
-                - Main and char select menus, pixel arts, costumes, ultimate HUD, stages (beta) and music.<br>
-                <b>Starter characters:</b><br>
-                - Jotaro.<br>
-                - X.<br>
-                - Zero.<br>
-                - Skibidi-Toilet.<br>
-                
-                <b>QoL:</b><br>
-                - Simplified the way to import a costume code.<br>
-                - Workshop characters without costumes.as file will use default hue filters.<br> 
-                - Removed restrictions from alt stages thing.<br>
-
-                <b>Other:</b><br>
-                - Added discord rich presence.<br>
-
-            </ul>
-        </div>
-        
-        <button class="collapsible btn btn-dark mb-2"><img src="images/sandbox.png" alt="Sandbox Icon" class="collapsible-icon"><b>SSF2 Sandbox overhaul <b>*OLD*</b></b></button>
-        <div class="content">
-            <ul>
-                <li>Google Drive: <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <li>Mediafire: <a href="https://www.mediafire.com/file/v0tajcc2uvlezsq/ssf2-sandbox-overhaul-full.rar/file" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <hr class="my-4">
-                <b>Changes</b><br>
-                - Easy xp chars: no slot limit, refresh, no mappings.<br>
-                - Final Smash Meter and other ports.<br>
-                - SSBU matchup screen.<br>
-                - Len update: balance and details.<br>
-                <b>Content from Val's side modpack:</b><br>
-                - for the stage too.<br>
-                - Use png/jpg as background.<br>
-                - Import your alt stages.<br>
-                - Add stages icons.<br>
-                <b>Fixes</b><br>
-                - Broken PAGE 3.<br>
-                - XP costumes not applying in menu.<br>
-                - v9b duplicating smash ball.<br>
-                - All items disappearing after destroy smash ball.<br>
-                - Unnecessary HUD created by stats update.<br>
-                - v9b chars projectiles can’t break smash ball.<br>
-                - v9b chars transformation freezing, softlocking or/and disappearing character.<br>
-                - Classic mode: Broken Crystal Smash.<br>
-                - Random softlock in Classic Mode.<br>
-                - XP chars with costume support not applying in Classic and All-Star modes.<br>
-                - Classic mode not using character's name at start.<br>
-                - Some Assists trophies not working properly (eg: frozen bomb).<br>
-                - Removed leftover code that prevents use costumes for certain characters.<br>
-                - The other mod: Can't add music or alts in Wario Ware Inc.<br>
-                - Len learning hadoken or Ryu throwing neco arc for the lols.<br>
-                - Random Stage slot not working Fixed.<br>
-            </ul>
-        </div>
-
-        <button class="collapsible btn btn-dark mb-2"><img src="images/sandbox.png" alt="Sandbox Icon" class="collapsible-icon"><b>SSF2 Sandbox 6.6.2 <b>*OLD*</b></b></button>
-        <div class="content">
-            <ul>
-                <li>Google Drive: <a href="https://drive.google.com/file/d/1o0QEFyY9hA0JJhOrhFtrViCR2mV-gVfp/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <li>Mediafire: <a href="https://www.mediafire.com/file/z0mgl56e9ruhynu/SSF2Sandbox6.6.2.rar/file" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">Download Link</a></li>
-                <hr class="my-4">
-                <b>DL: Patch 6.6.2 SSF2 Sandbox for v1.3.1.2</b><br>
-                <hr class="my-4">
-                A somewhat old mod that has several interesting stuff...<br>
-                Featuring:<br>
-                - Character XP Support (v0.9b, 1.3.X.X).<br>
-                - Stage XP Support (v0.9b).<br>
-                - 6 custom stages and music.<br>
-                - 5 cool characters: Jotaro, Dio, X, Zero, and Len.<br>
-                - Stage music.<br>
-                - Additional options (save rooms, hitbox, etc).<br>
-                - Custom UI.<br>
-                - A great announcer.<br>
-                - And more, that I don't quite remember.<br>
-            </ul>   
-        </div>
+    <div class="d-flex justify-content-center nav-links mb-4">
+      <a href="index.html">Home</a>
+      <a href="downloads.html" target="_blank">He retired</a>
+      <a href="https://www.youtube.com/@SSF2ColorVault" target="_blank">SSF2 Color Vault</a>
+      <a href="downloads.html" target="_blank">Sandbox's Discord's gone bro</a>
+      <a href="https://discord.gg/xZtTqX4" target="_blank">SSF2 Color Vault's Discord</a>
     </div>
 
-    <script>
+    <p class="mb-4">To download SSF2 Sandbox, please select the appropriate version below. 𒁂</p>
+
+    <button class="collapsible">
+        <img src="images/sandbox.png" alt="Icon"> SSF2 Sandbox Patch 6.? <strong class="ms-2 text-warning">NEW</strong>
+      </button>
+      <div class="content">
+        <ul>
+          <li><strong>Full game Win32/64:</strong> <a href="https://drive.google.com/file/d/1vAK7P5vGReZ5fSlMdLwkIlUcgQKdfB4v/view?usp=sharing" target="_blank">Download</a></li>
+        </ul>
+        <hr>
+        <p><strong>Changes:</strong><br>
+          - Costume Selector + Color Vault<br>
+          - XP Chars can now use costumes<br>
+          - The new stage selector (drag and drop thing)<br>
+          - v9b characters now works in events<br>
+        </p>
+        <p><strong>Other:</strong><br>
+          - Discord Rich Presence added
+        </p>
+      </div>
+
+    <!-- Latest Version -->
+    <button class="collapsible">
+      <img src="images/sandbox.png" alt="Icon"> SSF2 Sandbox 6.6.2 + QoL changes <strong class="ms-2 text-secondary">OLD</strong>
+    </button>
+    <div class="content">
+      <ul>
+        <li><strong>Full game + mod (957MB):</strong> <a href="https://drive.google.com/file/d/1vAK7P5vGReZ5fSlMdLwkIlUcgQKdfB4v/view?usp=sharing" target="_blank">Download</a></li>
+        <li><strong>Mod only (204MB):</strong> <a href="https://drive.google.com/file/d/1fxsf6LTgFJGX0DipfsdfMYPLA3A9L5n5/view?usp=sharing" target="_blank">Download</a></li>
+      </ul>
+      <hr>
+      <p><strong>Changes:</strong><br>
+        - v9b stage support + improvements<br>
+        - New stages: Sliph Co., Shadow Moses Island, Distant Planet, etc<br>
+        - Includes updated menus, pixel art, costumes, ultimate HUD<br>
+        <strong>Starter Characters:</strong> Jotaro, X, Zero, Skibidi-Toilet
+      </p>
+      <p><strong>QoL:</strong><br>
+        - Simplified costume import<br>
+        - Default hue filters for costume-less workshop chars<br>
+        - Removed alt stage restrictions
+      </p>
+      <p><strong>Other:</strong><br>
+        - Discord Rich Presence added
+      </p>
+    </div>
+
+    <!-- Overhaul -->
+    <button class="collapsible">
+      <img src="images/sandbox.png" alt="Icon"> SSF2 Sandbox Overhaul <strong class="ms-2 text-secondary">OLD</strong>
+    </button>
+    <div class="content">
+      <ul>
+        <li><strong>Google Drive:</strong> <a href="https://drive.google.com/file/d/1Y8yZWoWtzdKThBW1d2fvVCaL43GOZ2wY/view?usp=sharing" target="_blank">Download</a></li>
+        <li><strong>MediaFire:</strong> <a href="https://www.mediafire.com/file/v0tajcc2uvlezsq/ssf2-sandbox-overhaul-full.rar/file" target="_blank">Download</a></li>
+      </ul>
+      <hr>
+      <p><strong>Changes:</strong><br>
+        - Easy XP chars, no slot limits<br>
+        - Final Smash Meter and other ports<br>
+        - SSBU-style matchup screen<br>
+        - Len update, balance tweaks<br>
+        <strong>Fixes & Additions:</strong><br>
+        - Broken PAGE 3, costume bugs, v9b softlocks, assists, random crashes, and more!
+      </p>
+    </div>
+
+    <!-- 6.6.2 Legacy -->
+    <button class="collapsible">
+      <img src="images/sandbox.png" alt="Icon"> SSF2 Sandbox 6.6.2 <strong class="ms-2 text-secondary">OLD</strong>
+    </button>
+    <div class="content">
+      <ul>
+        <li><strong>Google Drive:</strong> <a href="https://drive.google.com/file/d/1o0QEFyY9hA0JJhOrhFtrViCR2mV-gVfp/view?usp=sharing" target="_blank">Download</a></li>
+        <li><strong>MediaFire:</strong> <a href="https://www.mediafire.com/file/z0mgl56e9ruhynu/SSF2Sandbox6.6.2.rar/file" target="_blank">Download</a></li>
+      </ul>
+      <hr>
+      <p><strong>Patch 6.6.2 - v1.3.1.2</strong><br>
+        - XP support for chars & stages<br>
+        - 6 custom stages<br>
+        - Characters: Jotaro, Dio, X, Zero, Len<br>
+        - Custom music, UI, announcer, and more
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Managed by JaiCherryCola ♥. Originally designed by MasterWex.</p>
+    <p>Hosted by GitHub Pages <img src="images/github.png" alt="GitHub logo"></p>
+  </footer>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const collapsibles = document.querySelectorAll('.collapsible');
-
-        collapsibles.forEach(collapsible => {
-            collapsible.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
-            });
+      const collapsibles = document.querySelectorAll('.collapsible');
+      collapsibles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('active');
+          const content = btn.nextElementSibling;
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
         });
+      });
     });
-    </script>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <footer>
-        <p>Managed by JaiCherryCola ♥. Originally designed and created by MasterWex.</p>
-        <p>Site hosted by Github Pages <img src="images/github.png" alt="GitHub Logo" style="margin-bottom: -4px;"></p>
-    </footer>
 </body>
 </html>
