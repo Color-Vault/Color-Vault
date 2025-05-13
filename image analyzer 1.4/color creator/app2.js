@@ -139,7 +139,7 @@ const imageList = [
     {
         "name": "Meta Knight Recolor Sheet",
         "url": "https://raw.githubusercontent.com/masterwebx/Color-Vault/refs/heads/master/other/color%20sheets/MetaKnight_Recolor_Sheet.png"
-    }
+    },
     {
         "name": "Naruto Recolor Sheet",
         "url": "https://raw.githubusercontent.com/masterwebx/Color-Vault/refs/heads/master/other/color%20sheets/Naruto%20Recolor%20Sheet.png"
@@ -175,7 +175,7 @@ const imageList = [
     {
         "name": "Rayman Recolor Sheet",
         "url": "https://raw.githubusercontent.com/masterwebx/Color-Vault/refs/heads/master/other/color%20sheets/Rayman%20Recolor%20Sheet.png"
-    }
+    },
     {
         "name": "Samus Recolor Sheet",
         "url": "https://raw.githubusercontent.com/masterwebx/Color-Vault/refs/heads/master/other/color%20sheets/Samus%20Recolor%20Sheet.png"
